@@ -122,12 +122,25 @@
         const modalQuality = document.getElementById('modal-quality');
         const modalStock = document.getElementById('modal-stock');
         const stockLi = document.getElementById('stock-li');
+        const waLink = document.getElementById('wa-link'); // Ambil elemen tautan WA
+
+        // Nomor WhatsApp Owner (tanpa +, tanpa 0 di depan)
+        const ownerNumber = "6281122334455"; 
 
         function openModal(title, price, quality, stock) {
             modalTitle.textContent = title;
             modalPrice.textContent = price;
             modalQuality.textContent = quality;
             modalStock.textContent = stock;
+
+            // --- Logika Pembuatan Tautan WhatsApp ---
+            const message = "Halo, saya tertarik dengan produk " + title + " yang harganya " + price + ". Apakah produk ini masih tersedia?";
+            // Mengubah spasi menjadi %20 agar URL valid
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Buat tautan WA lengkap
+            waLink.href = `https://wa.me/${ownerNumber}?text=${encodedMessage}`;
+            // ----------------------------------------
 
             stockLi.classList.remove('stock-available');
             if (stock.toUpperCase().includes('TERSEDIA') && !stock.toUpperCase().includes('HABIS')) {
