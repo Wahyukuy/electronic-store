@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Furniture Kami</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🛋️ Katalog Furniture Terbaik Kami</h1>
+    <p class="subtitle">Jelajahi koleksi kami dengan desain minimalis dan kualitas premium.</p>
+
+    <div class="products-grid">
+
+        <div class="product-card" onclick="openModal('Sofa L Mewah', 'Sofa sudut elegan berbahan kulit sintetis premium dengan bantal empuk. Cocok untuk ruang tamu modern.', 'Rp 8.500.000', 'sofa.jpg')">
+            <div class="product-image" style="background-image: url('placeholder_sofa.jpg');"></div>
+            <h3>Sofa L Mewah</h3>
+            <p class="price">Rp 8.500.000</p>
+            <button class="view-detail-btn">Lihat Detail</button>
+        </div>
+
+        <div class="product-card" onclick="openModal('Meja Makan Kayu Jati', 'Set meja makan dari kayu jati asli, tahan lama dan memberikan nuansa alami pada dapur Anda. Termasuk 4 kursi.', 'Rp 4.200.000', 'meja.jpg')">
+            <div class="product-image" style="background-image: url('placeholder_meja.jpg');"></div>
+            <h3>Meja Makan Kayu Jati</h3>
+            <p class="price">Rp 4.200.000</p>
+            <button class="view-detail-btn">Lihat Detail</button>
+        </div>
+
+        <div class="product-card" onclick="openModal('Lampu Tidur Minimalis', 'Lampu meja dengan desain geometris, cahaya hangat, ideal untuk kamar tidur atau ruang kerja.', 'Rp 350.000', 'lampu.jpg')">
+            <div class="product-image" style="background-image: url('placeholder_lampu.jpg');"></div>
+            <h3>Lampu Tidur Minimalis</h3>
+            <p class="price">Rp 350.000</p>
+            <button class="view-detail-btn">Lihat Detail</button>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="main-button kembali" style="margin-top: 40px;">Kembali ke Halaman Utama</a>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-price" class="price"></p>
+            <button class="main-button" style="background: #28a745; margin-top: 20px;">Pesan Sekarang</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('productModal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-description');
+        const modalPrice = document.getElementById('modal-price');
+        // const modalImage = document.getElementById('modal-image-placeholder');
+
+        function openModal(title, description, price, image) {
+            modalTitle.textContent = title;
+            modalDesc.textContent = description;
+            modalPrice.textContent = price;
+            // modalImage.style.backgroundImage = `url(${image})`; // Jika Anda punya gambar asli
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Tutup modal jika user klik di luar area modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
