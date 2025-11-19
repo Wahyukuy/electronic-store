@@ -1,64 +1,129 @@
+/* --- 1. Pengaturan Dasar (Body & Font) --- */
 body {
-    font-family: Arial, sans-serif;
+    /* Font yang lebih modern */
+    font-family: 'Poppins', sans-serif; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Pastikan tinggi minimum menutupi viewport */
     margin: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    /* Latar belakang dengan gradien lembut */
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%); 
+    color: #1f2937;
     text-align: center;
+    padding: 20px;
 }
 
+/* --- 2. Judul Halaman (H1) --- */
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;
+    font-weight: 700;
     color: #007bff;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    /* Efek teks shadow tipis */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
+/* --- 3. Wadah Tombol (Button Container) --- */
 .button-container {
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    flex-wrap: wrap; /* Pastikan tombol pindah baris di layar kecil */
+    justify-content: center;
 }
 
 .button-container.vertical {
     flex-direction: column;
+    gap: 15px;
 }
 
+/* --- 4. Tombol Utama (Main Button) --- */
 .main-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
+    padding: 18px 35px;
+    font-size: 1.1em;
+    font-weight: 600;
     cursor: pointer;
-    background-color: #007bff;
+    /* Gradien untuk tombol */
+    background: linear-gradient(45deg, #007bff, #0056b3); 
     color: white;
     border: none;
-    border-radius: 8px;
-    text-decoration: none; /* Penting untuk tag <a> */
-    transition: background-color 0.3s ease;
-    display: block; /* Memastikan anchor tag berfungsi seperti button */
+    border-radius: 10px; /* Sudut lebih melengkung */
+    text-decoration: none;
+    
+    /* Efek shadow agar terlihat timbul */
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3); 
+    
+    /* Transisi untuk animasi halus */
+    transition: all 0.3s ease; 
+    display: inline-block;
+    min-width: 250px;
 }
 
 .main-button:hover {
-    background-color: #0056b3;
+    /* Perubahan gradien saat hover */
+    background: linear-gradient(45deg, #0056b3, #003f7f); 
+    /* Tombol sedikit terangkat dan shadow lebih kuat */
+    transform: translateY(-3px) scale(1.02); 
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
 }
 
+.main-button:active {
+    /* Tombol sedikit tertekan saat diklik */
+    transform: translateY(1px); 
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+/* --- 5. Desain Sub-Pilihan (Halaman A) --- */
 .sub-pilihan {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    /* Shadow yang lebih kuat untuk container */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
 }
 
 .sub-pilihan h2 {
     color: #28a745;
-    margin-bottom: 20px;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
 .sub-pilihan-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+}
+
+/* Gaya tombol kembali (berbeda warna) */
+.main-button.kembali {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    box-shadow: 0 6px 15px rgba(108, 117, 125, 0.3);
+}
+
+.main-button.kembali:hover {
+    background: linear-gradient(45deg, #495057, #343a40);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(108, 117, 125, 0.4);
+}
+
+/* --- 6. Responsif Dasar (Opsional) --- */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .main-button {
+        min-width: 80%; /* Tombol lebih lebar di layar kecil */
+        font-size: 1em;
+        padding: 15px 20px;
+    }
 }
