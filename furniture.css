@@ -18,46 +18,79 @@
 }
 
 /* Kartu Produk */
+/* --- Bagian Catalogue (Produk) yang Diubah menjadi List-View --- */
+
+.subtitle {
+    font-size: 1.2em;
+    color: #495057;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.products-grid {
+    /* Menggunakan Flexbox untuk tata letak vertikal (seperti kolom) */
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; /* Jarak antar produk */
+    width: 90%;
+    max-width: 900px; /* Batasi lebar agar fokus pada konten */
+    padding-bottom: 40px;
+}
+
+/* Gaya Kartu Produk (Product Card) */
 .product-card {
     background-color: white;
     border-radius: 12px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    text-align: center;
+    text-align: left; /* Teks rata kiri */
+    
+    /* Mengubah Card menjadi tampilan horizontal (Gambar-Detail) */
+    display: flex;
+    align-items: center; /* Rata tengah secara vertikal */
+    gap: 20px;
 }
 
 .product-card:hover {
-    transform: translateY(-5px); /* Efek terangkat saat hover */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* Efek terangkat lebih kecil */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .product-image {
-    height: 200px;
-    background-color: #e9ecef; /* Warna placeholder */
+    width: 150px; /* Ukuran gambar yang lebih kecil */
+    min-width: 150px;
+    height: 150px;
+    background-color: #e9ecef;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 0; /* Hilangkan margin bawah */
     border: 1px solid #dee2e6;
+}
+
+/* Wadah untuk teks/detail produk */
+.product-details {
+    flex-grow: 1; /* Memastikan detail mengisi sisa ruang */
 }
 
 .product-card h3 {
     color: #1f2937;
     font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .product-card .price {
-    color: #ff6b6b; /* Warna harga yang menarik */
-    font-size: 1.3em;
+    color: #ff6b6b;
+    font-size: 1.2em;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .view-detail-btn {
-    padding: 10px 20px;
+    padding: 8px 15px;
     background-color: #ff6b6b;
     color: white;
     border: none;
@@ -70,7 +103,21 @@
     background-color: #cc5656;
 }
 
+/* Responsif: Tampilkan kembali sebagai daftar vertikal di layar kecil */
+@media (max-width: 600px) {
+    .product-card {
+        flex-direction: column; /* Ubah kembali menjadi susunan vertikal */
+        text-align: center;
+    }
+    .product-image {
+        width: 100%; 
+        height: 200px;
+        margin-bottom: 10px;
+    }
+}
 
+
+/* --- CATATAN: CSS POPUP MODAL TIDAK PERLU DIUBAH --- */
 /* --- CSS untuk POPUP MODAL --- */
 
 .modal {
