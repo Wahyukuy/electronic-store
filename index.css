@@ -37,32 +37,55 @@ h1 {
     cursor: pointer;
 }
 
-/* Styling Khusus Tombol Utama (index.html) */
-.hero-button {
+/* ... (Kode CSS sebelumnya tetap berlaku) ... */
+
+/* Penyesuaian untuk Tombol di index.html */
+.button-group-index {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Jarak antara dua tombol */
+    margin-top: 30px;
+}
+
+/* Styling Tombol 1 di index.html */
+.button-index-1 {
     background-color: #3498db; /* Biru Laut */
     color: white;
-    border: none;
 }
 
-.hero-button:hover {
+.button-index-1:hover {
     background-color: #2980b9;
-    transform: translateY(-2px);
 }
 
-/* Styling Khusus Tombol Pilihan (choices.html) */
-.choice-button-1 {
-    background-color: #27ae60; /* Hijau (Pilihan 1) */
+/* Styling Tombol 2 di index.html */
+.button-index-2 {
+    background-color: #f39c12; /* Emas (Informasi Kuil) */
     color: white;
-    border: none;
 }
 
-.choice-button-2 {
-    background-color: #e67e22; /* Oranye (Pilihan 2) */
+.button-index-2:hover {
+    background-color: #e67e22;
+}
+
+/* Styling Tombol Kembali */
+.button-return {
+    background-color: #95a5a6; /* Abu-abu */
     color: white;
-    border: none;
 }
 
-.choice-button-1:hover, .choice-button-2:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+.button-return:hover {
+    background-color: #7f8c8d;
+}
+
+/* Pastikan semua tombol memiliki gaya dasar hero-button */
+.hero-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
 }
