@@ -1,91 +1,64 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
+    font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+    color: #333;
     text-align: center;
 }
 
-.container {
-    padding: 40px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 90%;
-}
-
 h1 {
-    color: #2c3e50;
-    margin-bottom: 30px;
     font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 30px;
 }
 
-.hero-button {
-    display: inline-block;
-    padding: 15px 30px;
-    margin: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
-}
-
-/* ... (Kode CSS sebelumnya tetap berlaku) ... */
-
-/* Penyesuaian untuk Tombol di index.html */
-.button-group-index {
+.button-container {
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Jarak antara dua tombol */
-    margin-top: 30px;
+    gap: 20px;
 }
 
-/* Styling Tombol 1 di index.html */
-.button-index-1 {
-    background-color: #3498db; /* Biru Laut */
-    color: white;
+.button-container.vertical {
+    flex-direction: column;
 }
 
-.button-index-1:hover {
-    background-color: #2980b9;
-}
-
-/* Styling Tombol 2 di index.html */
-.button-index-2 {
-    background-color: #f39c12; /* Emas (Informasi Kuil) */
-    color: white;
-}
-
-.button-index-2:hover {
-    background-color: #e67e22;
-}
-
-/* Styling Tombol Kembali */
-.button-return {
-    background-color: #95a5a6; /* Abu-abu */
-    color: white;
-}
-
-.button-return:hover {
-    background-color: #7f8c8d;
-}
-
-/* Pastikan semua tombol memiliki gaya dasar hero-button */
-.hero-button {
-    display: inline-block;
+.main-button {
     padding: 15px 30px;
     font-size: 1.2em;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
     cursor: pointer;
+    background-color: #007bff;
+    color: white;
     border: none;
+    border-radius: 8px;
+    text-decoration: none; /* Penting untuk tag <a> */
+    transition: background-color 0.3s ease;
+    display: block; /* Memastikan anchor tag berfungsi seperti button */
+}
+
+.main-button:hover {
+    background-color: #0056b3;
+}
+
+.sub-pilihan {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sub-pilihan h2 {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.sub-pilihan-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
