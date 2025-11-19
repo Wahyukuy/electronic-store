@@ -1,191 +1,234 @@
-/* --- Tambahan untuk Halaman Katalog (produk.html) --- */
+/* --- Skema Warna: Ocean Blue --- */
+:root {
+    --color-primary: #0077b6;   /* Biru Laut Utama */
+    --color-secondary: #00b4d8; /* Biru Langit/Aksen */
+    --color-tertiary: #48cae4;  /* Aqua Cerah */
+    --color-background: #e9f5f8; /* Latar Belakang Sangat Pucat */
+    --color-text-dark: #1e3a5f;  /* Teks Biru Tua */
+    --color-price: #ee9b00;     /* Aksen Emas/Harga */
+}
+
+/* --- 1. Pengaturan Dasar (Body & Font) --- */
+body {
+    font-family: 'Poppins', sans-serif; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Mulai dari atas */
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* Gradien Latar Belakang Lembut */
+    background: linear-gradient(135deg, var(--color-background) 0%, #dbe9f4 100%); 
+    color: var(--color-text-dark);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+/* --- 2. Judul Halaman (H1) --- */
+h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); 
+}
 
 .subtitle {
     font-size: 1.2em;
-    color: #495057;
+    color: var(--color-text-dark);
     margin-bottom: 50px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
+/* --- 3. Grid Katalog (3 Kolom x 4 Baris) --- */
 .products-grid {
     display: grid;
-    /* Grid dengan 3 kolom di layar besar */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    /* 3 kolom dengan lebar yang sama */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     padding-bottom: 40px;
 }
 
-/* Kartu Produk */
-/* --- Bagian Catalogue (Produk) yang Diubah menjadi List-View --- */
-
-.subtitle {
-    font-size: 1.2em;
-    color: #495057;
-    margin-bottom: 50px;
-    font-weight: 300;
-}
-
-.products-grid {
-    /* Menggunakan Flexbox untuk tata letak vertikal (seperti kolom) */
-    display: flex;
-    flex-direction: column; 
-    gap: 20px; /* Jarak antar produk */
-    width: 90%;
-    max-width: 900px; /* Batasi lebar agar fokus pada konten */
-    padding-bottom: 40px;
-}
-
-/* Gaya Kartu Produk (Product Card) */
+/* --- 4. Kartu Produk (Product Card) --- */
 .product-card {
     background-color: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    padding: 20px;
+    /* Border Biru Muda */
+    border: 2px solid var(--color-tertiary); 
+    /* Shadow dengan warna primary */
+    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2); 
+    transition: all 0.3s ease;
     cursor: pointer;
-    text-align: left; /* Teks rata kiri */
-    
-    /* Mengubah Card menjadi tampilan horizontal (Gambar-Detail) */
-    display: flex;
-    align-items: center; /* Rata tengah secara vertikal */
-    gap: 20px;
+    text-align: center;
+    overflow: hidden; /* Pastikan tidak ada yang keluar dari batas */
 }
 
 .product-card:hover {
-    transform: translateY(-3px); /* Efek terangkat lebih kecil */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 119, 182, 0.3);
 }
 
 .product-image {
-    width: 150px; /* Ukuran gambar yang lebih kecil */
-    min-width: 150px;
-    height: 150px;
-    background-color: #e9ecef;
+    height: 220px;
+    background-color: #f0f8ff; 
     background-size: cover;
     background-position: center;
-    border-radius: 8px;
-    margin-bottom: 0; /* Hilangkan margin bawah */
-    border: 1px solid #dee2e6;
-}
-
-/* Wadah untuk teks/detail produk */
-.product-details {
-    flex-grow: 1; /* Memastikan detail mengisi sisa ruang */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cceeff;
 }
 
 .product-card h3 {
-    color: #1f2937;
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 5px;
+    color: var(--color-primary);
+    font-size: 1.6em;
+    margin-bottom: 8px;
 }
 
 .product-card .price {
-    color: #ff6b6b;
-    font-size: 1.2em;
+    color: var(--color-price);
+    font-size: 1.4em;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 .view-detail-btn {
-    padding: 8px 15px;
-    background-color: #ff6b6b;
+    padding: 10px 25px;
+    background-color: var(--color-secondary);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
     transition: background-color 0.3s;
 }
 
 .view-detail-btn:hover {
-    background-color: #cc5656;
-}
-
-/* Responsif: Tampilkan kembali sebagai daftar vertikal di layar kecil */
-@media (max-width: 600px) {
-    .product-card {
-        flex-direction: column; /* Ubah kembali menjadi susunan vertikal */
-        text-align: center;
-    }
-    .product-image {
-        width: 100%; 
-        height: 200px;
-        margin-bottom: 10px;
-    }
+    background-color: var(--color-primary);
 }
 
 
-/* --- CATATAN: CSS POPUP MODAL TIDAK PERLU DIUBAH --- */
-/* --- CSS untuk POPUP MODAL --- */
+/* --- 5. CSS untuk POPUP MODAL (Biru Laut) --- */
 
 .modal {
-    display: none; /* Disembunyikan secara default */
+    display: none; 
     position: fixed; 
-    z-index: 1000; /* Pastikan di atas semua elemen */
+    z-index: 1000; 
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.6); /* Background gelap transparan */
+    background-color: rgba(0,0,0,0.7); /* Background gelap transparan */
     align-items: center;
     justify-content: center;
+    overflow: auto;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    padding: 30px;
+    background-color: white;
+    padding: 40px;
     border-radius: 15px;
     width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    box-shadow: 0 10px 40px rgba(0, 119, 182, 0.5); /* Shadow biru kuat */
     position: relative;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.5s;
+    text-align: left;
 }
 
-/* Animasi muncul dari atas */
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
 }
 
 .close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 36px;
+    color: var(--color-primary);
+    font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 20px;
     transition: color 0.3s;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-    color: #333;
+    color: var(--color-tertiary);
     text-decoration: none;
     cursor: pointer;
 }
 
 .modal-content h2 {
-    color: #007bff;
+    color: var(--color-primary);
     margin-top: 0;
-    font-size: 2em;
-}
-
-.modal-content p {
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
-/* .modal-image {
-    height: 250px;
-    background-color: #e9ecef;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
+    font-size: 2.2em;
+    border-bottom: 2px solid var(--color-tertiary);
+    padding-bottom: 10px;
     margin-bottom: 20px;
-} */
+}
+
+.modal-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-detail-list li {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    color: var(--color-text-dark);
+    font-weight: 500;
+}
+
+.modal-detail-list li strong {
+    color: var(--color-secondary);
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.modal-detail-list li.stock-available strong {
+    color: #28a745; /* Hijau untuk Stok Tersedia */
+}
+
+/* Tombol Kembali/Aksi */
+.main-button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none; 
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3);
+}
+
+.main-button:hover {
+    background: linear-gradient(45deg, var(--color-primary), #004d74);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 119, 182, 0.4);
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr; 
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .modal-content {
+        max-width: 90%;
+        padding: 25px;
+    }
+}
