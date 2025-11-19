@@ -1,0 +1,222 @@
+/* --- Skema Warna: Pasir dan Laut --- */
+:root {
+    --color-sand: #fefae0;      /* Krem/Pasir Sangat Muda (Latar Belakang) */
+    --color-sand-medium: #faedcd; /* Pasir Medium */
+    --color-navy: #003049;      /* Biru Laut Tua/Navy (Teks Utama/Aksen) */
+    --color-ocean: #d62828;     /* Warna Aksen Kontras (Dibuat Merah Bata untuk kontras yang menarik, mewakili matahari terbenam/karang) */
+    --color-text-light: #525252; /* Teks Sekunder */
+    --color-price: #ffc300;     /* Emas/Kuning Cerah (Harga) */
+}
+
+/* --- 1. Pengaturan Dasar (Body & Font) --- */
+body {
+    font-family: 'Montserrat', sans-serif; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* Latar Belakang Pasir Lembut */
+    background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-sand-medium) 100%); 
+    color: var(--color-navy);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+/* --- 2. Judul Halaman (H1) --- */
+h1 {
+    font-size: 3em;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 48, 73, 0.15); 
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: var(--color-text-light);
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+/* --- 3. Grid Katalog (3 Kolom x 4 Baris) --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    padding-bottom: 40px;
+}
+
+/* --- 4. Kartu Produk (Product Card) --- */
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    /* Border Pasir */
+    border: 3px solid var(--color-sand-medium); 
+    /* Shadow Biru Lautan */
+    box-shadow: 0 6px 15px rgba(0, 48, 73, 0.15); 
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.product-card:hover {
+    transform: translateY(-4px); 
+    /* Shadow lebih dalam saat di-hover */
+    box-shadow: 0 12px 25px rgba(0, 48, 73, 0.25);
+}
+
+.product-image {
+    height: 200px;
+    background-color: #ffffff; /* Latar belakang putih untuk foto produk elektronik */
+    background-size: contain; /* Agar produk elektronik tidak terpotong */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.product-card h3 {
+    color: var(--color-navy);
+    font-size: 1.5em;
+    margin-bottom: 8px;
+}
+
+.product-card .price {
+    color: var(--color-price);
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.view-detail-btn {
+    padding: 10px 25px;
+    /* Warna aksen Merah Bata/Karang */
+    background-color: var(--color-ocean); 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.view-detail-btn:hover {
+    background-color: #a31919;
+}
+
+
+/* --- 5. CSS untuk POPUP MODAL (Kontras) --- */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); 
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 35px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 48, 73, 0.3); 
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    text-align: left;
+}
+
+@keyframes animatetop {
+    from {top: -200px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-btn {
+    color: var(--color-navy);
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.modal-content h2 {
+    color: var(--color-ocean);
+    margin-top: 0;
+    font-size: 2em;
+    border-bottom: 2px solid var(--color-sand-medium);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-detail-list li {
+    font-size: 1.05em;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+.modal-detail-list li strong {
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.modal-detail-list li.stock-available strong {
+    color: #28a745; 
+}
+
+/* Tombol Aksi */
+.main-button {
+    padding: 12px 25px;
+    font-size: 1em;
+    background: linear-gradient(45deg, var(--color-navy), #001f2e);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none; 
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 3px 8px rgba(0, 48, 73, 0.3);
+}
+
+.main-button:hover {
+    background: var(--color-ocean);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(214, 40, 40, 0.4);
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr; 
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+}
