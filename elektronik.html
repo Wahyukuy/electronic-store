@@ -122,6 +122,11 @@
         const modalQuality = document.getElementById('modal-quality');
         const modalStock = document.getElementById('modal-stock');
         const stockLi = document.getElementById('stock-li');
+        const waLink = document.getElementById('wa-link'); // Ambil elemen tautan WA
+
+        // ⚠️ PENTING: GANTI DENGAN NOMOR WHATSAPP BISNIS ANDA!
+        // Format: Kode negara (62) diikuti nomor (tanpa + atau 0 di depan).
+        const ownerNumber = "6281122334455"; 
 
         function openModal(title, price, quality, stock) {
             modalTitle.textContent = title;
@@ -129,6 +134,18 @@
             modalQuality.textContent = quality;
             modalStock.textContent = stock;
 
+            // --- Logika Pembuatan Tautan WhatsApp Otomatis ---
+            // Pesan yang akan otomatis diisi:
+            const message = `Halo, saya tertarik dengan produk ${title} yang harganya ${price} (Kualitas: ${quality}). Mohon info ketersediaan lebih lanjut.`;
+            
+            // Mengubah spasi dan karakter khusus lainnya menjadi format yang aman untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Menyatukan tautan WhatsApp
+            waLink.href = `https://wa.me/${ownerNumber}?text=${encodedMessage}`;
+            // ----------------------------------------
+
+            // Logika Stok
             stockLi.classList.remove('stock-available');
             if (stock.toUpperCase().includes('TERSEDIA') && !stock.toUpperCase().includes('HABIS')) {
                 stockLi.classList.add('stock-available');
@@ -147,5 +164,3 @@
             }
         }
     </script>
-</body>
-</html>
